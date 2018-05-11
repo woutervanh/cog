@@ -504,11 +504,6 @@ static const struct wl_pointer_listener pointer_listener = {
     .motion = pointer_on_motion,
     .button = pointer_on_button,
     .axis = pointer_on_axis,
-
-    .frame = pointer_on_frame,
-    .axis_source = pointer_on_axis_source,
-    .axis_stop = pointer_on_axis_stop,
-    .axis_discrete = pointer_on_axis_discrete,
 };
 
 static void
