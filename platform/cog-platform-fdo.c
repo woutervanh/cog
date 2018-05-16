@@ -8,6 +8,7 @@
 #include <cog.h>
 
 #include <assert.h>
+#include <errno.h>
 #include <stdbool.h>
 #include <stdint.h>
 #include <wpe/webkit.h>
@@ -1436,7 +1437,7 @@ clear_gles (void)
     glDeleteTextures (1, &gl_data.tex);
 }
 
-gboolean
+G_MODULE_EXPORT gboolean
 cog_platform_setup (CogPlatform *platform,
                     CogLauncher *_launcher,
                     const char  *params,
@@ -1444,6 +1445,14 @@ cog_platform_setup (CogPlatform *platform,
 {
     g_assert_nonnull (platform);
     g_return_val_if_fail (COG_IS_LAUNCHER (_launcher), FALSE);
+
+    if (!g_setenv ("WPE_BACKEND_LIBRARY", "libWPEBackend-fdo-0.1.so", TRUE)) {
+        g_set_error_literal (error,
+                             G_FILE_ERROR,
+                             g_file_error_from_errno (errno),
+                             "Cannot set WPE_BACKEND_LIBRARY environment variable");
+        return FALSE;
+    }
 
     launcher = _launcher;
 
@@ -1459,7 +1468,7 @@ cog_platform_setup (CogPlatform *platform,
     return TRUE;
 }
 
-void
+G_MODULE_EXPORT void
 cog_platform_teardown (CogPlatform *platform)
 {
     g_assert_nonnull (platform);
@@ -1486,7 +1495,7 @@ cog_platform_teardown (CogPlatform *platform)
     clear_wayland ();
 }
 
-WebKitWebViewBackend*
+G_MODULE_EXPORT WebKitWebViewBackend*
 cog_platform_get_view_backend (CogPlatform   *platform,
                                WebKitWebView *related_view,
                                GError       **error)
