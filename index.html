@@ -1,0 +1,657 @@
+<!--
+SPDX-FileCopyrightText: 2021 GNOME Foundation
+
+SPDX-License-Identifier: Apache-2.0 OR GPL-3.0-or-later
+-->
+
+<!--
+SPDX-FileCopyrightText: 2021 GNOME Foundation
+
+SPDX-License-Identifier: Apache-2.0 OR GPL-3.0-or-later
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Cog &ndash; 0.0</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta charset="utf-8" />
+
+  
+  <meta property="og:type" content="website"/>
+
+  
+  <meta property="og:image:width" content="256"/>
+  <meta property="og:image:height" content="256"/>
+  <meta property="og:image:secure_url" content="cog.png"/>
+  <meta property="og:image:alt" content="Cog-0.0"/>
+  
+
+  
+  <meta property="og:title" content="Cog-0.0"/>
+  <meta property="og:description" content="Reference for Cog-0.0"/>
+  <meta name="twitter:title" content="Cog-0.0"/>
+  <meta name="twitter:description" content="Reference for Cog-0.0"/>
+
+
+  
+  <meta name="twitter:card" content="summary"/>
+
+  
+  
+  
+  
+
+  <link rel="stylesheet" href="style.css" type="text/css" />
+
+  
+
+  
+  
+  <script src="fzy.js"></script>
+  <script src="search.js"></script>
+  
+  <script src="main.js"></script>
+</head>
+
+<body>
+  <div id="body-wrapper" tabindex="-1">
+
+    <nav class="sidebar devhelp-hidden">
+      
+      <div class="section">
+        <img src="cog.png" class="logo"/>
+      </div>
+      
+      
+      <div class="search section">
+        <form id="search-form" autocomplete="off">
+          <input id="search-input" type="text" name="do-not-autocomplete" placeholder="Click, or press 's' to search" autocomplete="off"/>
+        </form>
+      </div>
+      
+      <div class="section namespace">
+        <h3><a href="index.html">Cog</a></h3>
+        <p>API Version: 0.0</p>
+        
+        <p>Library Version: 0.19.1</p>
+        
+      </div>
+      
+<div class="section">
+  <h5>Sections</h5>
+  <div class="links">
+  
+
+  
+    <a href="#classes">Classes</a>
+  
+  
+    <a href="#interfaces">Interfaces</a>
+  
+  
+    <a href="#structs">Structs</a>
+  
+  
+  
+  
+    <a href="#enums">Enumerations</a>
+  
+  
+  
+  
+  
+    <a href="#functions">Functions</a>
+  
+  
+  
+    <a href="#constants">Constants</a>
+  
+  </div>
+</div>
+
+<div class="section">
+  <h5>Dependencies</h5>
+  <div class="links">
+  
+    <a href="https://developer.gnome.org/glib/stable" class="external">GLib</a>
+  
+    <a href="https://developer.gnome.org/gobject/stable" class="external">GObject</a>
+  
+    <a href="https://developer.gnome.org/gio/stable" class="external">Gio</a>
+  
+    <a href="https://libsoup.gnome.org/libsoup-2.4" class="external">Soup</a>
+  
+  </div>
+</div>
+
+
+    </nav>
+    
+    <button id="btn-to-top" class="hidden"><span class="up-arrow"></span></button>
+
+    
+<section id="main" class="content">
+  <header>
+    <h3>Namespace</h3>
+    <h1>Cog &ndash; 0.0</h1>
+
+    <div class="description">
+      <p>The Cog core library</p>
+    </div>
+
+    <div class="meta info">
+      <table>
+        <tr><td><em>Version</em></td><td>0.19.1</td></tr>
+        <tr><td><em>Authors</em></td><td>The WPE WebKit team</td></tr>
+        <tr><td><em>License</em></td><td>MIT</td></tr>
+        <tr><td><em>Website</em></td><td><a href="https://wpewebkit.org" class="external">https://wpewebkit.org</a></td></tr>
+        <tr><td><em>Source</em></td><td><a href="https://github.com/Igalia/cog" class="external">https://github.com/Igalia/cog</a></td></tr>
+      </table>
+    </div>
+
+    <div class="meta build toggle-wrapper">
+      <h4>Build</h4>
+
+      <div class="docblock">
+      <table>
+        <tr><td>C headers</td><td><code>cog/cog.h</code></td></tr>
+        <tr><td>pkg-config files</td><td><code></code></td></tr>
+      </table>
+      </div>
+    </div>
+  </header>
+
+  
+  <section>
+    <div class="toggle-wrapper">
+      <h4 id="dependencies" style="display:flex;">
+        Dependencies
+        <a href="#dependencies" class="anchor"></a>
+      </h4>
+
+      <div class="docblock">
+        <table>
+        
+          
+          <tr>
+            <td><strong>GLib</strong>&mdash;2.0</td>
+            <td>The base utility library</td>
+          </tr>
+          <tr>
+            <td></td>
+            <td><a href="https://developer.gnome.org/glib/stable" class="external">Browse documentation</a></td>
+          </tr>
+          
+        
+          
+          <tr>
+            <td><strong>GObject</strong>&mdash;2.0</td>
+            <td>The base type system library</td>
+          </tr>
+          <tr>
+            <td></td>
+            <td><a href="https://developer.gnome.org/gobject/stable" class="external">Browse documentation</a></td>
+          </tr>
+          
+        
+          
+          <tr>
+            <td><strong>Gio</strong>&mdash;2.0</td>
+            <td>The GLib input/output library</td>
+          </tr>
+          <tr>
+            <td></td>
+            <td><a href="https://developer.gnome.org/gio/stable" class="external">Browse documentation</a></td>
+          </tr>
+          
+        
+          
+          <tr>
+            <td><strong>Soup</strong>&mdash;2.4</td>
+            <td>The Soup networking library</td>
+          </tr>
+          <tr>
+            <td></td>
+            <td><a href="https://libsoup.gnome.org/libsoup-2.4" class="external">Browse documentation</a></td>
+          </tr>
+          
+        
+        </table>
+      </div>
+    </div>
+  </section>
+  
+
+  
+
+  
+  <section>
+    <div class="toggle-wrapper">
+      <h4 id="extra" style="display:flex;">
+        Additional documentation
+        <a href="#extra" class="anchor"></a>
+      </h4>
+
+      <div class="docblock">
+        <ul>
+        
+          <li><a href="overview.html">Overview</a></li>
+        
+          <li><a href="running.html">Running Cog Applications</a></li>
+        
+          <li><a href="contributing.html">Contributing</a></li>
+        
+          <li><a href="platform-wl.html">Platform: WL</a></li>
+        
+          <li><a href="platform-drm.html">Platform: DRM</a></li>
+        
+          <li><a href="platform-x11.html">Platform: X11</a></li>
+        
+          <li><a href="platform-headless.html">Platform: Headless</a></li>
+        
+          <li><a href="platform-fallback.html">Platform: Fallback</a></li>
+        
+          <li><a href="webdriver.html">WebDriver support</a></li>
+        
+          <li><a href="classes_hierarchy.html">Classes Hierarchy</a></li>
+        
+        </ul>
+      </div>
+    </div>
+  </section>
+  
+
+  
+
+  
+  <section>
+    <div class="toggle-wrapper default-hide">
+      <h4 id="classes" class="section-header" style="display:flex;">
+        Classes
+        <a href="#classes" class="anchor"></a>
+      </h4>
+
+      <div class="docblock">
+        <table style="display:block;">
+          <tbody>
+          
+          <tr class="section-item">
+            <td><a title="DirectoryFilesHandler" class="symbol" href="class.DirectoryFilesHandler.html">DirectoryFilesHandler</a></td>
+            
+            <td class="docblock-summary"><p>Request handler implementation that loads content from files inside
+a local&nbsp;directory.</p></td>
+            
+          </tr>
+          
+          <tr class="section-item">
+            <td><a title="HostRoutesHandler" class="symbol" href="class.HostRoutesHandler.html">HostRoutesHandler</a></td>
+            
+            <td class="docblock-summary"><p>Direct custom <span class="caps">URI</span> scheme requests to different&nbsp;handlers.</p></td>
+            
+          </tr>
+          
+          <tr class="section-item">
+            <td><a title="Platform" class="symbol" href="class.Platform.html">Platform</a></td>
+            
+            <td class="docblock-summary"></td>
+            
+          </tr>
+          
+          <tr class="section-item">
+            <td><a title="PrefixRoutesHandler" class="symbol" href="class.PrefixRoutesHandler.html">PrefixRoutesHandler</a></td>
+            
+            <td class="docblock-summary"><p>Direct custom <span class="caps">URI</span> scheme requests to different&nbsp;handlers.</p></td>
+            
+          </tr>
+          
+          <tr class="section-item">
+            <td><a title="Shell" class="symbol" href="class.Shell.html">Shell</a></td>
+            
+            <td class="docblock-summary"><p>A shell managed a WebKit.WebView, the default <span class="caps">URI</span> that it will
+load, the view configuration, and keeps track of a number of registered
+<code>CogRequestHandler</code> instances.</p></td>
+            
+          </tr>
+          
+          <tr class="section-item">
+            <td><a title="View" class="symbol" href="class.View.html">View</a></td>
+            
+            <td class="docblock-summary"><p>Convenience base class for web&nbsp;views.</p></td>
+            
+          </tr>
+          
+          <tr class="section-item">
+            <td><a title="Viewport" class="symbol" href="class.Viewport.html">Viewport</a></td>
+            
+            <td class="docblock-summary"><p>Observable set of views, one of which can be&nbsp;visible.</p></td>
+            
+          </tr>
+          
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+  
+  
+  <section>
+    <div class="toggle-wrapper default-hide">
+      <h4 id="interfaces" class="section-header" style="display:flex;">
+        Interfaces
+        <a href="#interfaces" class="anchor"></a>
+      </h4>
+
+      <div class="docblock">
+        <table style="display:block;">
+          <tbody>
+          
+          <tr class="section-item">
+            <td><a title="RequestHandler" class="symbol" href="iface.RequestHandler.html">RequestHandler</a></td>
+            
+            <td class="docblock-summary"><p>Convenience interface which allows implementing custom <span class="caps">URI</span> scheme&nbsp;handlers.</p></td>
+            
+          </tr>
+          
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+  
+  
+  <section>
+    <div class="toggle-wrapper default-hide">
+      <h4 id="structs" class="section-header" style="display:flex;">
+        Structs
+        <a href="#structs" class="anchor"></a>
+      </h4>
+
+      <div class="docblock">
+        <table style="display:block;">
+          <tbody>
+          
+          <tr class="section-item">
+            <td><a title="_DirectoryFilesHandlerClass" class="symbol" href="struct._DirectoryFilesHandlerClass.html">_DirectoryFilesHandlerClass</a></td>
+            
+            <td class="docblock-summary"></td>
+            
+          </tr>
+          
+          <tr class="section-item">
+            <td><a title="_HostRoutesHandlerClass" class="symbol" href="struct._HostRoutesHandlerClass.html">_HostRoutesHandlerClass</a></td>
+            
+            <td class="docblock-summary"></td>
+            
+          </tr>
+          
+          <tr class="section-item">
+            <td><a title="_PrefixRoutesHandlerClass" class="symbol" href="struct._PrefixRoutesHandlerClass.html">_PrefixRoutesHandlerClass</a></td>
+            
+            <td class="docblock-summary"></td>
+            
+          </tr>
+          
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+  
+  
+  
+  
+  <section>
+    <div class="toggle-wrapper default-hide">
+      <h4 id="enums" class="section-header" style="display:flex;">
+        Enumerations
+        <a href="#enums" class="anchor"></a>
+      </h4>
+
+      <div class="docblock">
+        <table style="display:block;">
+          <tbody>
+          
+          <tr class="section-item">
+            <td><a title="PlatformError" class="symbol" href="enum.PlatformError.html">PlatformError</a></td>
+            
+            <td class="docblock-summary"></td>
+            
+          </tr>
+          
+          <tr class="section-item">
+            <td><a title="PlatformWpeError" class="symbol" href="enum.PlatformWpeError.html">PlatformWpeError</a></td>
+            
+            <td class="docblock-summary"></td>
+            
+          </tr>
+          
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+  
+  
+  
+  
+  
+  <section>
+    <div class="toggle-wrapper default-hide">
+      <h4 id="functions" class="section-header" style="display:flex;">
+        Functions
+        <a href="#functions" class="anchor"></a>
+      </h4>
+
+      <div class="docblock">
+        <table style="display:block;">
+          <tbody>
+          
+          <tr class="section-item">
+            <td><a title="appid_to_dbus_object_path" class="symbol" href="func.appid_to_dbus_object_path.html">appid_to_dbus_object_path</a></td>
+            
+            <td class="docblock-summary"></td>
+            
+          </tr>
+          
+          <tr class="section-item">
+            <td><a title="gamepad_parse_backend" class="symbol" href="func.gamepad_parse_backend.html">gamepad_parse_backend</a></td>
+            
+            <td class="docblock-summary"></td>
+            
+          </tr>
+          
+          <tr class="section-item">
+            <td><a title="gamepad_set_backend" class="symbol" href="func.gamepad_set_backend.html">gamepad_set_backend</a></td>
+            
+            <td class="docblock-summary"></td>
+            
+          </tr>
+          
+          <tr class="section-item">
+            <td><a title="gamepad_setup" class="symbol" href="func.gamepad_setup.html">gamepad_setup</a></td>
+            
+            <td class="docblock-summary"></td>
+            
+          </tr>
+          
+          <tr class="section-item">
+            <td><a title="handle_web_view_load_changed" class="symbol" href="func.handle_web_view_load_changed.html">handle_web_view_load_changed</a></td>
+            
+            <td class="docblock-summary"><p>Handles page load status changes, writing status reports to the
+standard error&nbsp;output.</p></td>
+            
+          </tr>
+          
+          <tr class="section-item">
+            <td><a title="handle_web_view_load_failed" class="symbol" href="func.handle_web_view_load_failed.html">handle_web_view_load_failed</a></td>
+            
+            <td class="docblock-summary"><p>Handles page load errors, showing a simple error page if needed and
+logging a message to the standard error&nbsp;output.</p></td>
+            
+          </tr>
+          
+          <tr class="section-item">
+            <td><a title="handle_web_view_load_failed_with_tls_errors" class="symbol" href="func.handle_web_view_load_failed_with_tls_errors.html">handle_web_view_load_failed_with_tls_errors</a></td>
+            
+            <td class="docblock-summary"><p>Handles <span class="caps">TLS</span> page load errors, showing a simple error page if needed and
+logging a message to the standard error&nbsp;output.</p></td>
+            
+          </tr>
+          
+          <tr class="section-item">
+            <td><a title="handle_web_view_web_process_terminated" class="symbol" href="func.handle_web_view_web_process_terminated.html">handle_web_view_web_process_terminated</a></td>
+            
+            <td class="docblock-summary"><p>Handles unexpected web process termination, showing a simple error page
+and logging a message to the standard error&nbsp;output.</p></td>
+            
+          </tr>
+          
+          <tr class="section-item">
+            <td><a title="handle_web_view_web_process_terminated_exit" class="symbol" href="func.handle_web_view_web_process_terminated_exit.html">handle_web_view_web_process_terminated_exit</a></td>
+            
+            <td class="docblock-summary"><p>Handles unexpected web process termination, exiting the program with the
+value passed as <code>userdata</code> as&nbsp;status.</p></td>
+            
+          </tr>
+          
+          <tr class="section-item">
+            <td><a title="init" class="symbol" href="func.init.html">init</a></td>
+            
+            <td class="docblock-summary"><p>Initialize the library, optionally indicating&nbsp;options.</p></td>
+            
+          </tr>
+          
+          <tr class="section-item">
+            <td><a title="modules_add_directory" class="symbol" href="func.modules_add_directory.html">modules_add_directory</a></td>
+            
+            <td class="docblock-summary"><p>Scans a directory for loadable modules and registers them with the
+extension points they&nbsp;implement.</p></td>
+            
+          </tr>
+          
+          <tr class="section-item">
+            <td><a title="modules_foreach" class="symbol" href="func.modules_foreach.html">modules_foreach</a></td>
+            
+            <td class="docblock-summary"><p>Invokes a callback for each module which implements an extension&nbsp;point.</p></td>
+            
+          </tr>
+          
+          <tr class="section-item">
+            <td><a title="modules_get_platform_extension_point" class="symbol" href="func.modules_get_platform_extension_point.html">modules_get_platform_extension_point</a></td>
+            
+            <td class="docblock-summary"><p>Obtain the extension point for platform&nbsp;modules.</p></td>
+            
+          </tr>
+          
+          <tr class="section-item">
+            <td><a title="modules_get_preferred" class="symbol" href="func.modules_get_preferred.html">modules_get_preferred</a></td>
+            
+            <td class="docblock-summary"><p>Retrieves the default class which implements a certain extension&nbsp;point.</p></td>
+            
+          </tr>
+          
+          <tr class="section-item">
+            <td><a title="option_entries_from_class" class="symbol" href="func.option_entries_from_class.html">option_entries_from_class</a></td>
+            
+            <td class="docblock-summary"></td>
+            
+          </tr>
+          
+          <tr class="section-item">
+            <td><a title="uri_guess_from_user_input" class="symbol" href="func.uri_guess_from_user_input.html">uri_guess_from_user_input</a></td>
+            
+            <td class="docblock-summary"><p>Tries to assemble a valid <span class="caps">URI</span> from input that resembles a <span class="caps">URI</span>.</p></td>
+            
+          </tr>
+          
+          <tr class="section-item">
+            <td><a title="web_view_connect_default_error_handlers" class="symbol" href="func.web_view_connect_default_error_handlers.html">web_view_connect_default_error_handlers</a></td>
+            
+            <td class="docblock-summary"><p>Install the default error signal&nbsp;handlers.</p></td>
+            
+          </tr>
+          
+          <tr class="section-item">
+            <td><a title="web_view_connect_default_progress_handlers" class="symbol" href="func.web_view_connect_default_progress_handlers.html">web_view_connect_default_progress_handlers</a></td>
+            
+            <td class="docblock-summary"><p>Install the default page load progress signal&nbsp;handlers.</p></td>
+            
+          </tr>
+          
+          <tr class="section-item">
+            <td><a title="web_view_connect_web_process_terminated_restart_handler" class="symbol" href="func.web_view_connect_web_process_terminated_restart_handler.html">web_view_connect_web_process_terminated_restart_handler</a></td>
+            
+            <td class="docblock-summary"><p>Handles unexpected web process termination, trying to restart the web
+process up to a maximum number of attempts during a retry&nbsp;window.</p></td>
+            
+          </tr>
+          
+          <tr class="section-item">
+            <td><a title="webkit_settings_apply_from_key_file" class="symbol" href="func.webkit_settings_apply_from_key_file.html">webkit_settings_apply_from_key_file</a></td>
+            
+            <td class="docblock-summary"><p>Reads values from a given <code>group</code> of a <code>GKeyFile</code> object,
+and uses them to set the writable properties of a WebKit.Settings&nbsp;object.</p></td>
+            
+          </tr>
+          
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+  
+  
+  
+  <section>
+    <div class="toggle-wrapper default-hide">
+      <h4 id="constants" class="section-header" style="display:flex;">
+        Constants
+        <a href="#constants" class="anchor"></a>
+      </h4>
+
+      <div class="docblock">
+        <table style="display:block;">
+          <tbody>
+          
+          <tr class="section-item">
+            <td><a title="INSIDE_COG__" class="symbol" href="const.INSIDE_COG__.html">INSIDE_COG__</a></td>
+            
+            <td class="docblock-summary"></td>
+            
+          </tr>
+          
+          <tr class="section-item">
+            <td><a title="MODULES_PLATFORM_EXTENSION_POINT" class="symbol" href="const.MODULES_PLATFORM_EXTENSION_POINT.html">MODULES_PLATFORM_EXTENSION_POINT</a></td>
+            
+            <td class="docblock-summary"></td>
+            
+          </tr>
+          
+          <tr class="section-item">
+            <td><a title="SHELL_DEFAULT_VIEWPORT_INDEX" class="symbol" href="const.SHELL_DEFAULT_VIEWPORT_INDEX.html">SHELL_DEFAULT_VIEWPORT_INDEX</a></td>
+            
+            <td class="docblock-summary"></td>
+            
+          </tr>
+          
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+  
+</section>
+
+
+    
+
+    <section id="search" class="content hidden"></section>
+
+    <footer>
+    
+    </footer>
+  </div>
+</body>
+</html>

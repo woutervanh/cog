@@ -1,0 +1,278 @@
+<!--
+SPDX-FileCopyrightText: 2021 GNOME Foundation
+
+SPDX-License-Identifier: Apache-2.0 OR GPL-3.0-or-later
+-->
+
+<!--
+SPDX-FileCopyrightText: 2021 GNOME Foundation
+
+SPDX-License-Identifier: Apache-2.0 OR GPL-3.0-or-later
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Cog.web_view_connect_web_process_terminated_restart_handler</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta charset="utf-8" />
+
+  
+  <meta property="og:type" content="website"/>
+
+  
+  <meta property="og:image:width" content="256"/>
+  <meta property="og:image:height" content="256"/>
+  <meta property="og:image:secure_url" content="cog.png"/>
+  <meta property="og:image:alt" content="Cog-0.0"/>
+  
+
+  
+  <meta property="og:title" content="Cog.web_view_connect_web_process_terminated_restart_handler"/>
+  <meta property="og:description" content="Reference for Cog.web_view_connect_web_process_terminated_restart_handler"/>
+  <meta name="twitter:title" content="Cog.web_view_connect_web_process_terminated_restart_handler"/>
+  <meta name="twitter:description" content="Reference for Cog.web_view_connect_web_process_terminated_restart_handler"/>
+
+
+  
+  <meta name="twitter:card" content="summary"/>
+
+  
+  
+  
+  
+
+  <link rel="stylesheet" href="style.css" type="text/css" />
+
+  
+
+  
+  
+  <script src="fzy.js"></script>
+  <script src="search.js"></script>
+  
+  <script src="main.js"></script>
+</head>
+
+<body>
+  <div id="body-wrapper" tabindex="-1">
+
+    <nav class="sidebar devhelp-hidden">
+      
+      <div class="section">
+        <img src="cog.png" class="logo"/>
+      </div>
+      
+      
+      <div class="search section">
+        <form id="search-form" autocomplete="off">
+          <input id="search-input" type="text" name="do-not-autocomplete" placeholder="Click, or press 's' to search" autocomplete="off"/>
+        </form>
+      </div>
+      
+      <div class="section namespace">
+        <h3><a href="index.html">Cog</a></h3>
+        <p>API Version: 0.0</p>
+        
+        <p>Library Version: 0.19.1</p>
+        
+      </div>
+      
+
+<div class="section">
+  <h5>Functions</h5>
+  <div class="links">
+  
+  </div>
+</div>
+
+
+    </nav>
+    
+    <button id="btn-to-top" class="hidden"><span class="up-arrow"></span></button>
+
+    
+<section id="main" class="content">
+  <header>
+    <h3>Function </h3>
+    <h1><a href="index.html">Cog</a><span class="sep"></span>web_view_connect_web_process_terminated_restart_handler</h1>
+  </header>
+
+  <section>
+    <div class="declaration toggle-wrapper">
+      <h4 id="declaration" style="display:flex;">
+        Declaration
+        <a href="#declaration" class="anchor"></a>
+        
+        <a class="srclink" title="go to source location" href="https://github.com/Igalia/cog/blob/master/core/cog-webkit-utils.h#L58">[src]</a>
+        
+      </h4>
+
+      <div class="docblock">
+        <pre><code><div class="highlight"><pre><span></span><span class="n">gulong</span><span class="w"></span>
+<span class="n">cog_web_view_connect_web_process_terminated_restart_handler</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+<span class="w">  </span><span class="n">WebKitWebView</span><span class="o">*</span><span class="w"> </span><span class="n">web_view</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="kt">unsigned</span><span class="w"> </span><span class="n">max_tries</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="kt">unsigned</span><span class="w"> </span><span class="n">try_window_ms</span><span class="w"></span>
+<span class="p">)</span><span class="w"></span>
+</pre></div>
+</code></pre>
+      </div>
+    </div>
+
+    <div class="description toggle-wrapper">
+      <h4 id="description" style="display:flex;">
+        Description
+        <a href="#description" class="anchor"></a>
+        
+        <a class="srclink" title="go to source location" href="https://github.com/Igalia/cog/blob/master/core/cog-webkit-utils.c#L316">[src]</a>
+        
+      </h4>
+
+      <div class="docblock">
+        <p>Handles unexpected web process termination, trying to restart the web
+process up to a maximum number of attempts during a retry&nbsp;window.</p>
+<p>Once the web process has been terminated, a retry window timer will
+be started with a duration of <code>try_window_ms</code> milliseconds. During
+this time, restarting the web process will be attempted up to a
+maximum amount of attempts (<code>max_tries</code>):</p>
+<ul>
+<li>If the maximum number of attempts is reached within the retry window
+  time, an error page will be&nbsp;displayed.</li>
+<li>If the retry window timer expires without the web process being
+  terminated again, the count of attempts done is reset to&nbsp;zero.</li>
+</ul>
+<p>This function will connect its own callback to the
+WebKit.WebView::web-process-terminated signal. The identifier
+of the installed signal handler is returned, which allows to disconnect
+it if&nbsp;needed.</p>
+      </div>
+
+      <div class="docblock">
+        <table>
+          
+          
+          
+          
+          <tr><td>This function is not directly available to language bindings</td></tr>
+          
+          
+          
+        </table>
+      </div>
+
+      
+    </div>
+
+    
+    <div class="parameters toggle-wrapper">
+      <h4 id="parameters">
+        Parameters
+        <a href="#parameters" class="anchor"></a>
+      </h4>
+
+      <div class="docblock">
+        <table class="arguments">
+          
+          <tr class="arg-name">
+            <td><code>web_view</code></td>
+            <td><code>WebKitWebView*</code></td>
+          </tr>
+          <tr class="arg-description">
+            <td>&nbsp;</td>
+            <td><p>A&nbsp;WebKit.WebView.</p></td>
+          </tr>
+          
+          
+          
+          
+          
+          
+          
+          <tr><td>&nbsp;</td><td title="transfer: none">The data is owned by the caller of the function.</td></tr>
+          
+          
+          <tr class="arg-name">
+            <td><code>max_tries</code></td>
+            <td><code>unsigned</code></td>
+          </tr>
+          <tr class="arg-description">
+            <td>&nbsp;</td>
+            <td><p>Maximum number of attempts in the retry&nbsp;window.</p></td>
+          </tr>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <tr class="arg-name">
+            <td><code>try_window_ms</code></td>
+            <td><code>unsigned</code></td>
+          </tr>
+          <tr class="arg-description">
+            <td>&nbsp;</td>
+            <td><p>Length of the retry window in&nbsp;milliseconds.</p></td>
+          </tr>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+        </table>
+      </div>
+    </div>
+    
+
+    
+    <div class="return-value toggle-wrapper">
+      <h4 id="return-value">
+        Return value
+        <a href="#return-value" class="anchor"></a>
+      </h4>
+
+      <div class="docblock">
+        <table class="returns">
+          <tr class="arg-name">
+            <td>Returns:</td>
+            <td><code>gulong</code></td>
+          </tr>
+          <tr class="arg-description">
+            <td>&nbsp;</td>
+            <td><p>Identifier of the installed signal&nbsp;handler.</p></td>
+          </tr>
+          
+          
+          
+          
+          
+          
+        </table>
+      </div>
+    </div>
+    
+  </section>
+</section>
+
+
+    
+
+    <section id="search" class="content hidden"></section>
+
+    <footer>
+    
+    </footer>
+  </div>
+</body>
+</html>

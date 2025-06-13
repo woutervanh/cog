@@ -1,0 +1,270 @@
+<!--
+SPDX-FileCopyrightText: 2021 GNOME Foundation
+
+SPDX-License-Identifier: Apache-2.0 OR GPL-3.0-or-later
+-->
+
+<!--
+SPDX-FileCopyrightText: 2021 GNOME Foundation
+
+SPDX-License-Identifier: Apache-2.0 OR GPL-3.0-or-later
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Cog &ndash; 0.0: Platform: WL</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta charset="utf-8" />
+
+  
+  <meta property="og:type" content="website"/>
+
+  
+  <meta property="og:image:width" content="256"/>
+  <meta property="og:image:height" content="256"/>
+  <meta property="og:image:secure_url" content="cog.png"/>
+  <meta property="og:image:alt" content="Cog-0.0"/>
+  
+
+  
+  <meta property="og:title" content="Cog: Platform: WL"/>
+  <meta property="og:description" content="Reference for Cog-0.0: Platform: WL"/>
+  <meta name="twitter:title" content="Cog: Platform: WL"/>
+  <meta name="twitter:description" content="Reference for Cog-0.0: Platform: WL"/>
+
+
+  
+  <meta name="twitter:card" content="summary"/>
+
+  
+  
+  
+  
+
+  <link rel="stylesheet" href="style.css" type="text/css" />
+
+  
+
+  
+  
+  <script src="fzy.js"></script>
+  <script src="search.js"></script>
+  
+  <script src="main.js"></script>
+</head>
+
+<body>
+  <div id="body-wrapper" tabindex="-1">
+
+    <nav class="sidebar devhelp-hidden">
+      
+      <div class="section">
+        <img src="cog.png" class="logo"/>
+      </div>
+      
+      
+      <div class="search section">
+        <form id="search-form" autocomplete="off">
+          <input id="search-input" type="text" name="do-not-autocomplete" placeholder="Click, or press 's' to search" autocomplete="off"/>
+        </form>
+      </div>
+      
+      <div class="section namespace">
+        <h3><a href="index.html">Cog</a></h3>
+        <p>API Version: 0.0</p>
+        
+        <p>Library Version: 0.19.1</p>
+        
+      </div>
+      
+      
+    </nav>
+    
+    <button id="btn-to-top" class="hidden"><span class="up-arrow"></span></button>
+
+    
+<section id="main" class="content">
+  <section>
+    <div class="docblock">
+    <h1 id="wayland-platform">Wayland Platform<a class="md-anchor" href="#wayland-platform" title="Permanent link"></a></h1>
+<p>The Wayland (<code>wl</code>) platform plug-in allows Cog to run under a compositor which
+supports the <a href="https://wayland.freedesktop.org/">Wayland protocol</a>. The
+following is a non-comprehensive list of compositors known to&nbsp;work:</p>
+<ul>
+<li><a href="https://gnome.org"><span class="caps">GNOME</span></a> Shell, in a Wayland&nbsp;session.</li>
+<li><a href="https://wayland.pages.freedesktop.org/weston/">Weston</a>, the reference
+  compositor developed as part of the Wayland&nbsp;project.</li>
+<li><a href="https://swaywm.org/">Sway</a>, a tiling compositor based on <a href="https://gitlab.freedesktop.org/wlroots/wlroots">wlroots</a>.</li>
+<li><a href="https://www.hjdskes.nl/projects/cage/">Cage</a>, a kiosk-oriented compositor
+  based on <a href="https://gitlab.freedesktop.org/wlroots/wlroots">wlroots</a>.</li>
+<li><a href="https://labwc.github.io/">labwc</a>, a lean stacking compositor based on
+  <a href="https://gitlab.freedesktop.org/wlroots/wlroots">wlroots</a>.</li>
+</ul>
+<p>The compositor needs to be running <em>before</em> attempting to launch Cog. The
+environment variables <code>WAYLAND_DISPLAY</code> and <code>XDG_RUNTIME_DIR</code> need to be
+defined with suitable values. The <a href="#troubleshooting">troubleshooting</a>
+section provides some tips on how to obtain the needed&nbsp;values.</p>
+<p>If you start Cog <em>from within</em> the compositor, e.g. running <code>cog &lt;url&gt;</code>
+from a terminal in a <span class="caps">GNOME</span> session, should work without any manual&nbsp;intervention.</p>
+<p>A notable exception is Cage, because it is designed to run a single
+application under the compositor control. The command used to execute
+Cog needs to be provided when starting&nbsp;it:</p>
+<div class="codehilite"><pre><span></span><code>cage -- cog wpewebkit.org
+</code></pre></div>
+
+<p>Weston and all the <a href="https://gitlab.freedesktop.org/wlroots/wlroots">wlroots</a>-based compositors listed above will run
+nested in their own window, inside another Wayland or X11 session, if the
+needed environment variables are set accordingly (<code>XDG_RUNTIME_DIR</code>, plus
+<code>WAYLAND_DISPLAY</code>, or <code>DISPLAY</code> for X11). This setup can be useful for&nbsp;development.</p>
+<h2 id="requirements">Requirements<a class="md-anchor" href="#requirements" title="Permanent link"></a></h2>
+<p>The <code>wl</code> (Wayland) platform plug-in additionally requires the following
+libraries and&nbsp;packages:</p>
+<ul>
+<li><strong>WPEBackend-fdo</strong></li>
+<li><strong>Wayland</strong></li>
+<li><strong>libxkbcommon</strong></li>
+<li><strong>wayland-protocols</strong></li>
+<li><strong>wayland-scanner</strong></li>
+</ul>
+<h2 id="environment-variables">Environment Variables<a class="md-anchor" href="#environment-variables" title="Permanent link"></a></h2>
+<p>The following environment variables can be set to change how the Wayland
+surface used for output will be&nbsp;configured:</p>
+<table>
+<thead>
+<tr>
+<th align="left">Variable</th>
+<th align="left">Type</th>
+<th align="right">Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>COG_PLATFORM_WL_VIEW_FULLSCREEN</code></td>
+<td align="left">boolean</td>
+<td align="right"><code>0</code></td>
+</tr>
+<tr>
+<td align="left"><code>COG_PLATFORM_WL_VIEW_MAXIMIZE</code></td>
+<td align="left">boolean</td>
+<td align="right"><code>0</code></td>
+</tr>
+<tr>
+<td align="left"><code>COG_PLATFORM_WL_VIEW_WIDTH</code></td>
+<td align="left">number</td>
+<td align="right"><code>1024</code></td>
+</tr>
+<tr>
+<td align="left"><code>COG_PLATFORM_WL_VIEW_HEIGHT</code></td>
+<td align="left">number</td>
+<td align="right"><code>768</code></td>
+</tr>
+</tbody>
+</table>
+<p>Setting <code>COG_PLATFORM_WL_VIEW_FULLSCREEN</code> will take precedence over
+<code>COG_PLATFORM_WL_VIEW_MAXIMIZE</code>, and if either of those are enabled the size
+specified with <code>COG_PLATFORM_WL_VIEW_WIDTH</code> and <code>COG_PLATFORM_WL_VIEW_HEIGHT</code>
+will be&nbsp;ignored.</p>
+<p>Note that these are <em>requests</em> made to the Wayland compositor, which has the
+final say in how the surface is presented to the user. In general, surfaces
+which have been fullscreened completely cover the output (i.e. they take the
+whole screen), while for maximized surfaces the compositor my still show
+some user interface elements (like borders or buttons) while trying to make
+the surface as big as possible. Some compositors take faster approaches when
+there is only a single fullscreen surface being&nbsp;displayed.</p>
+<h2 id="key-bindings">Key Bindings<a class="md-anchor" href="#key-bindings" title="Permanent link"></a></h2>
+<p>On top of the <a href="method.View.set_use_key_bindings.html">built-in keybindings</a>, the
+additional following key bindings are&nbsp;supported:</p>
+<table>
+<thead>
+<tr>
+<th align="left">Binding</th>
+<th align="left">Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>F11</code></td>
+<td align="left">Toggle fullscreen.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="troubleshooting">Troubleshooting<a class="md-anchor" href="#troubleshooting" title="Permanent link"></a></h2>
+<p>Before looking further, check&nbsp;that:</p>
+<ul>
+<li>There is a Wayland compositor&nbsp;running.</li>
+<li>The <code>XDG_RUNTIME_DIR</code> environment variable points to a local path writable
+  by the user account which will run&nbsp;Cog.</li>
+<li>The <code>WAYLAND_DISPLAY</code> environment variable is defined and contains the name
+  of an Unix socket which must be present at
+  <code>$XDG_RUNTIME_DIR/$WAYLAND_DISPLAY</code>.</li>
+<li>The user account which will run Cog can access the device nodes needed for
+  <span class="caps">GPU</span> rendering, typically present under <code>/dev/dri</code>.</li>
+</ul>
+<p>If a compositor is running, the values needed for the <code>WAYLAND_DISPLAY</code> and
+<code>XDG_RUNTIME_DIR</code> environment variables can be found by pulling
+<code>XDG_RUNTIME_DIR</code> from the running process&mdash;make sure to replace <code>cage</code>
+when using a different&nbsp;compositor:</p>
+<div class="codehilite"><pre><span></span><code>tr <span class="s1">&#39;\0&#39;</span> <span class="s1">&#39;\n&#39;</span> &lt; /proc/<span class="k">$(</span>pidof cage<span class="k">)</span>/environ <span class="p">|</span> grep <span class="s1">&#39;^XDG_RUNTIME_DIR=&#39;</span>
+</code></pre></div>
+
+<p>Then look into the resulting location for a socket named <code>wayland-N</code>, where
+<em>N</em> is a number. The name of the socket is the value for <code>WAYLAND_DISPLAY</code>.</p>
+<p>The following shell snippet will define both variables if&nbsp;needed:</p>
+<div class="codehilite"><pre><span></span><code><span class="c1"># Needs Bash or Zsh</span>
+
+<span class="k">if</span> <span class="o">[[</span> -z <span class="nv">$XDG_RUNTIME_DIR</span> <span class="o">]]</span> <span class="p">;</span> <span class="k">then</span>
+  <span class="nb">eval</span> <span class="s2">&quot;</span><span class="k">$(</span>tr <span class="s1">&#39;\0&#39;</span> <span class="s1">&#39;\n&#39;</span> &lt; /proc/<span class="k">$(</span>pidof cage<span class="k">)</span>/environ <span class="p">|</span> grep <span class="s1">&#39;^XDG_RUNTIME_DIR=&#39;</span><span class="k">)</span><span class="s2">&quot;</span>
+<span class="k">fi</span>
+
+<span class="k">if</span> <span class="o">[[</span> -z <span class="nv">$WAYLAND_DISPLAY</span> <span class="o">]]</span> <span class="p">;</span> <span class="k">then</span>
+  <span class="k">for</span> path <span class="k">in</span> <span class="s2">&quot;</span><span class="nv">$XDG_RUNTIME_DIR</span><span class="s2">&quot;</span>/* <span class="p">;</span> <span class="k">do</span>
+    <span class="nv">name</span><span class="o">=</span><span class="si">${</span><span class="nv">path</span><span class="p">#</span><span class="si">${</span><span class="nv">XDG_RUNTIME_DIR</span><span class="si">}</span><span class="p">/</span><span class="si">}</span>
+    <span class="k">if</span> <span class="o">[[</span> <span class="nv">$name</span> <span class="o">=</span> wayland-* <span class="o">&amp;&amp;</span> -S <span class="nv">$path</span> <span class="o">]]</span> <span class="p">;</span> <span class="k">then</span>
+      <span class="nv">WAYLAND_DISPLAY</span><span class="o">=</span><span class="nv">$name</span>
+      <span class="nb">break</span>
+    <span class="k">fi</span>
+  <span class="k">done</span>
+<span class="k">fi</span>
+
+<span class="k">if</span> <span class="o">[[</span> -z <span class="nv">$WAYLAND_DISPLAY</span> <span class="o">]]</span> <span class="p">;</span> <span class="k">then</span>
+  <span class="nb">echo</span> <span class="s1">&#39;No Wayland compositor running&#39;</span>
+<span class="k">else</span>
+  <span class="nb">export</span> WAYLAND_DISPLAY XDG_RUNTIME_DIR
+<span class="k">fi</span>
+</code></pre></div>
+    </div>
+  </section>
+</section>
+
+
+    
+<div id="toc" class="toc">
+  <nav aria-labelledby="toc-title">
+    <p id="toc-title">Content</p>
+    <ul class="toc-list">
+      
+        
+        <li class="toc-list-item"><a href="#requirements"><span class="link-text">Requirements</span></a></li>
+        
+        <li class="toc-list-item"><a href="#environment-variables"><span class="link-text">Environment Variables</span></a></li>
+        
+        <li class="toc-list-item"><a href="#key-bindings"><span class="link-text">Key Bindings</span></a></li>
+        
+        <li class="toc-list-item"><a href="#troubleshooting"><span class="link-text">Troubleshooting</span></a></li>
+        
+      
+    </ul>
+  </nav>
+</div>
+
+
+    <section id="search" class="content hidden"></section>
+
+    <footer>
+    
+    </footer>
+  </div>
+</body>
+</html>

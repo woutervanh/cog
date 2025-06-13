@@ -1,0 +1,277 @@
+<!--
+SPDX-FileCopyrightText: 2021 GNOME Foundation
+
+SPDX-License-Identifier: Apache-2.0 OR GPL-3.0-or-later
+-->
+
+<!--
+SPDX-FileCopyrightText: 2021 GNOME Foundation
+
+SPDX-License-Identifier: Apache-2.0 OR GPL-3.0-or-later
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Cog &ndash; 0.0: Platform: DRM</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta charset="utf-8" />
+
+  
+  <meta property="og:type" content="website"/>
+
+  
+  <meta property="og:image:width" content="256"/>
+  <meta property="og:image:height" content="256"/>
+  <meta property="og:image:secure_url" content="cog.png"/>
+  <meta property="og:image:alt" content="Cog-0.0"/>
+  
+
+  
+  <meta property="og:title" content="Cog: Platform: DRM"/>
+  <meta property="og:description" content="Reference for Cog-0.0: Platform: DRM"/>
+  <meta name="twitter:title" content="Cog: Platform: DRM"/>
+  <meta name="twitter:description" content="Reference for Cog-0.0: Platform: DRM"/>
+
+
+  
+  <meta name="twitter:card" content="summary"/>
+
+  
+  
+  
+  
+
+  <link rel="stylesheet" href="style.css" type="text/css" />
+
+  
+
+  
+  
+  <script src="fzy.js"></script>
+  <script src="search.js"></script>
+  
+  <script src="main.js"></script>
+</head>
+
+<body>
+  <div id="body-wrapper" tabindex="-1">
+
+    <nav class="sidebar devhelp-hidden">
+      
+      <div class="section">
+        <img src="cog.png" class="logo"/>
+      </div>
+      
+      
+      <div class="search section">
+        <form id="search-form" autocomplete="off">
+          <input id="search-input" type="text" name="do-not-autocomplete" placeholder="Click, or press 's' to search" autocomplete="off"/>
+        </form>
+      </div>
+      
+      <div class="section namespace">
+        <h3><a href="index.html">Cog</a></h3>
+        <p>API Version: 0.0</p>
+        
+        <p>Library Version: 0.19.1</p>
+        
+      </div>
+      
+      
+    </nav>
+    
+    <button id="btn-to-top" class="hidden"><span class="up-arrow"></span></button>
+
+    
+<section id="main" class="content">
+  <section>
+    <div class="docblock">
+    <h1 id="drmkms-platform">DRM/KMS Platform<a class="md-anchor" href="#drmkms-platform" title="Permanent link"></a></h1>
+<h2 id="requirements">Requirements<a class="md-anchor" href="#requirements" title="Permanent link"></a></h2>
+<p>The <span class="caps">DRM</span> platform plug-in additionally requires the following&nbsp;libraries:</p>
+<ul>
+<li><strong>WPEBackend-fdo</strong></li>
+<li><strong>Wayland</strong></li>
+<li><strong>GLESv2</strong></li>
+<li><strong>libdrm</strong></li>
+<li><strong>libgbm</strong></li>
+<li><strong>libinput</strong></li>
+<li><strong>libudev</strong></li>
+</ul>
+<h2 id="configuration-file-options">Configuration File Options<a class="md-anchor" href="#configuration-file-options" title="Permanent link"></a></h2>
+<p>If a section named <code>drm</code> is found in the configuration file (see
+<a href="property.Shell.config-file.html"><code>CogShell:config-file</code></a>), the following options will be&nbsp;honored:</p>
+<table>
+<thead>
+<tr>
+<th align="left">Option</th>
+<th align="left">Type</th>
+<th align="left">Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>device-scale-factor</code></td>
+<td align="left">float</td>
+<td align="left"><code>1.0</code></td>
+</tr>
+<tr>
+<td align="left"><code>disable-atomic-modesetting</code></td>
+<td align="left">boolean</td>
+<td align="left"><em>detect</em></td>
+</tr>
+<tr>
+<td align="left"><code>renderer</code></td>
+<td align="left">string</td>
+<td align="left"><code>"modeset"</code></td>
+</tr>
+</tbody>
+</table>
+<p>The <code>device-scale-factor</code> option indicates a scaling factor to be applied to
+the rendered content. This is particularly useful for displays with a high
+<abbr title="Dots Per Inch"><span class="caps">DPI</span></abbr> to avoid rendered content to appear
+abnormally small. A typical setting for displays around the <span class="caps">192DPI</span> mark would
+be <code>2.0</code>. Note that currently no attempt is done to try guessing a suitable
+value, and values other than the default need to be explicitly&nbsp;set.</p>
+<p>The <code>disable-atomic-modesetting</code> option can be used to explicitly disable
+usage of <a href="https://lwn.net/Articles/653071/">atomic mode setting</a>. This is a feature supported
+by many modern <span class="caps">GPU</span> drivers and it will be used by default when available.  In
+some rare cases—mostly buggy or incomplete drivers—it might need to be
+manually disable its usage by setting this option to <code>true</code>.</p>
+<p>The <code>renderer</code> option controls how renderer content will be displayed. The
+default value is <code>"modeset"</code>, which attaches rendered frames directly to
+the output. Using the value <code>"gles"</code> will “paint” frames onto a quad using
+OpenGL <span class="caps">ES</span>. The main reason to use the latter is that it supports <a href="#output-rotation">output
+rotation</a>.</p>
+<h2 id="parameters">Parameters<a class="md-anchor" href="#parameters" title="Permanent link"></a></h2>
+<p>The following parameters can be passed to the platform plug-in during
+initialization (e.g. using <code>cog --platform-params=…</code>):</p>
+<table>
+<thead>
+<tr>
+<th align="left">Parameter</th>
+<th align="left">Type</th>
+<th align="left">Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>renderer</code></td>
+<td align="left">string</td>
+<td align="left"><code>modeset</code></td>
+</tr>
+<tr>
+<td align="left"><code>rotation</code></td>
+<td align="left">number</td>
+<td align="left"><code>0</code></td>
+</tr>
+</tbody>
+</table>
+<p>The <code>renderer</code> parameter is the same as the <a href="#configuration-file-options">configuration file
+option</a> of the same&nbsp;name.</p>
+<p>The <code>rotation</code> parameter indicates the initial <a href="#output-rotation">output
+rotation</a>&nbsp;applied.</p>
+<h2 id="environment-variables">Environment Variables<a class="md-anchor" href="#environment-variables" title="Permanent link"></a></h2>
+<p>The following environment variables can be set to further tweak how the
+<span class="caps">DRM</span> plug-in&nbsp;operates:</p>
+<table>
+<thead>
+<tr>
+<th align="left">Variable</th>
+<th align="left">Type</th>
+<th align="right">Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>COG_PLATFORM_DRM_VIDEO_MODE</code></td>
+<td align="left">string</td>
+<td align="right"><em>(unset</em>)</td>
+</tr>
+<tr>
+<td align="left"><code>COG_PLATFORM_DRM_MODE_MAX</code></td>
+<td align="left">string</td>
+<td align="right"><em>(unset)</em></td>
+</tr>
+<tr>
+<td align="left"><code>COG_PLATFORM_DRM_CURSOR</code></td>
+<td align="left">string</td>
+<td align="right"><em>(unset)</em></td>
+</tr>
+</tbody>
+</table>
+<p>By default the preferred mode for the first found connected output is used
+(if available), otherwise the mode with highest resolution.
+Setting <code>COG_PLATFORM_DRM_VIDEO_MODE</code> instructs the plug-in to pick a
+particular video mode, while <code>COG_PLATFORM_DRM_MODE_MAX</code> can be used to
+limit which modes are considered. <code>COG_PLATFORM_DRM_VIDEO_MODE</code> accepts
+mode strings in the format <code>WxR</code> (<code>W</code>idth and <code>H</code>eight in pixels).
+<code>COG_PLATFORM_DRM_MODE_MAX</code> additionally accepts mode strings with
+a refresh rate in the format <code>WxH@R</code>.
+for example <code>1920x1080@60</code> for a typical Full-<span class="caps">HD</span>&nbsp;mode.</p>
+<p>Setting <code>COG_PLATFORM_DRM_CURSOR</code> to a non-empty string enables showing
+the mouse cursor&nbsp;pointer.</p>
+<h2 id="output-rotation">Output Rotation<a class="md-anchor" href="#output-rotation" title="Permanent link"></a></h2>
+<p>When using the OpenGL <span class="caps">ES</span> renderer using <code>gles</code> as value for the <code>renderer</code>
+parameter, it is possible to rotate the output by multiples of 90 degrees.
+This can be set in two&nbsp;ways:</p>
+<ul>
+<li>During initialization via the <code>rotation</code> <a href="#parameters">parameter</a>.</li>
+<li>At run time by modifying the <code>CogDrmPlatform.rotation</code> object&nbsp;property.</li>
+</ul>
+<p>In both cases the value is an integer in the <em>[0, 3]</em> range, which is the
+amount 90 degree counter-clockwise turns to apply. For example a value of
+<code>3</code> would result in <code>3 × 90 = 270</code> degrees.</p>
+<p>The following example shows how to change the rotation at run&nbsp;time:</p>
+<div class="codehilite"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">cog_modules_add_directory</span><span class="p">(</span><span class="n">COG_MODULEDIR</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">g_autoptr</span><span class="p">(</span><span class="n">CogPlatform</span><span class="p">)</span><span class="w"> </span><span class="n">plat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cog_platform_new</span><span class="p">(</span><span class="s">&quot;drm&quot;</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">g_autoptr</span><span class="p">(</span><span class="n">CogShell</span><span class="p">)</span><span class="w"> </span><span class="n">shell</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cog_shell_new</span><span class="p">(</span><span class="s">&quot;example&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">FALSE</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">cog_platform_setup</span><span class="p">(</span><span class="n">plat</span><span class="p">,</span><span class="w"> </span><span class="n">shell</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;renderer=gles&quot;</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">    </span><span class="cm">/* Set the rotation. */</span><span class="w"></span>
+<span class="w">    </span><span class="n">g_object_set</span><span class="p">(</span><span class="n">plat</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;rotation&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">    </span><span class="cm">/* Now proceed to run a GMainLoop normally… */</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+    </div>
+  </section>
+</section>
+
+
+    
+<div id="toc" class="toc">
+  <nav aria-labelledby="toc-title">
+    <p id="toc-title">Content</p>
+    <ul class="toc-list">
+      
+        
+        <li class="toc-list-item"><a href="#requirements"><span class="link-text">Requirements</span></a></li>
+        
+        <li class="toc-list-item"><a href="#configuration-file-options"><span class="link-text">Configuration File Options</span></a></li>
+        
+        <li class="toc-list-item"><a href="#parameters"><span class="link-text">Parameters</span></a></li>
+        
+        <li class="toc-list-item"><a href="#environment-variables"><span class="link-text">Environment Variables</span></a></li>
+        
+        <li class="toc-list-item"><a href="#output-rotation"><span class="link-text">Output Rotation</span></a></li>
+        
+      
+    </ul>
+  </nav>
+</div>
+
+
+    <section id="search" class="content hidden"></section>
+
+    <footer>
+    
+    </footer>
+  </div>
+</body>
+</html>

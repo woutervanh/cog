@@ -1,0 +1,351 @@
+<!--
+SPDX-FileCopyrightText: 2021 GNOME Foundation
+
+SPDX-License-Identifier: Apache-2.0 OR GPL-3.0-or-later
+-->
+
+<!--
+SPDX-FileCopyrightText: 2021 GNOME Foundation
+
+SPDX-License-Identifier: Apache-2.0 OR GPL-3.0-or-later
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Cog.RequestHandler</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta charset="utf-8" />
+
+  
+  <meta property="og:type" content="website"/>
+
+  
+  <meta property="og:image:width" content="256"/>
+  <meta property="og:image:height" content="256"/>
+  <meta property="og:image:secure_url" content="cog.png"/>
+  <meta property="og:image:alt" content="Cog-0.0"/>
+  
+
+  
+  <meta property="og:title" content="Cog.RequestHandler"/>
+  <meta property="og:description" content="Reference for Cog.RequestHandler"/>
+  <meta name="twitter:title" content="Cog.RequestHandler"/>
+  <meta name="twitter:description" content="Reference for Cog.RequestHandler"/>
+
+
+  
+  <meta name="twitter:card" content="summary"/>
+
+  
+  
+  
+  
+
+  <link rel="stylesheet" href="style.css" type="text/css" />
+
+  
+
+  
+  
+  <script src="fzy.js"></script>
+  <script src="search.js"></script>
+  
+  <script src="main.js"></script>
+</head>
+
+<body>
+  <div id="body-wrapper" tabindex="-1">
+
+    <nav class="sidebar devhelp-hidden">
+      
+      <div class="section">
+        <img src="cog.png" class="logo"/>
+      </div>
+      
+      
+      <div class="search section">
+        <form id="search-form" autocomplete="off">
+          <input id="search-input" type="text" name="do-not-autocomplete" placeholder="Click, or press 's' to search" autocomplete="off"/>
+        </form>
+      </div>
+      
+      <div class="section namespace">
+        <h3><a href="index.html">Cog</a></h3>
+        <p>API Version: 0.0</p>
+        
+        <p>Library Version: 0.19.1</p>
+        
+      </div>
+      
+<div class="section">
+  <h5>Type</h5>
+  <div class="links">
+    <a class="current" href="iface.RequestHandler.html#description">RequestHandler</a>
+  </div>
+</div>
+
+
+
+
+<div class="section">
+  <h5>Instance methods</h5>
+  <div class="links">
+  
+    <a class="method" href="method.RequestHandler.run.html">run</a>
+  
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+<div class="section">
+  <h5>Virtual methods</h5>
+  <div class="links">
+  
+    <a class="method" href="vfunc.RequestHandler.run.html">run</a>
+  
+  </div>
+</div>
+
+
+
+    </nav>
+    
+    <button id="btn-to-top" class="hidden"><span class="up-arrow"></span></button>
+
+    
+<section id="main" class="content">
+  <header>
+    <h3>Interface</h3>
+    <h1><a href="index.html">Cog</a><span class="sep"></span>RequestHandler</h1>
+  </header>
+
+  <section>
+    <summary>
+      <div class="toggle-wrapper">
+        <h4 id="description" style="display:flex;">
+          Description
+          <a href="#description" class="anchor"></a>
+          
+          <a class="srclink" title="go to source location" href="https://github.com/Igalia/cog/blob/master/core/cog-request-handler.c#L10">[src]</a>
+          
+        </h4>
+
+        <pre><code>interface Cog.RequestHandler : GObject.Object</code></pre>
+
+        <div class="docblock">
+          <p>Convenience interface which allows implementing custom <span class="caps">URI</span> scheme&nbsp;handlers.</p>
+<p>Any object that implements this interface can be passed to
+<a href="method.Shell.set_request_handler.html"><code>cog_shell_set_request_handler()</code></a>. An advantage of using this
+interface instead of WebKit.WebContext.register_uri_scheme
+directly is that it allows for extending handlers (by subclassing) and
+for more easily combining different handlers in an aggregate one (like
+<a href="class.PrefixRoutesHandler.html"><code>CogPrefixRoutesHandler</code></a> is that it allows for extending handlers
+(by subclassing), supports combining different handlers in an aggregate
+one (like <a href="class.PrefixRoutesHandler.html"><code>CogPrefixRoutesHandler</code></a>) more easily, and handler
+implementations can keep their state in the object&nbsp;instances.</p>
+<h3 id="implementations">Implementations<a class="md-anchor" href="#implementations" title="Permanent link"></a></h3>
+<ul>
+<li><a href="class.DirectoryFilesHandler.html"><code>CogDirectoryFilesHandler</code></a></li>
+<li><a href="class.PrefixRoutesHandler.html"><code>CogPrefixRoutesHandler</code></a></li>
+</ul>
+        </div>
+
+        <div class="docblock">
+          <table class="attributes">
+            
+            
+            
+          </table>
+        </div>
+
+        
+      </div>
+    </summary>
+
+    <div class="toggle-wrapper prerequisite">
+      <h4 id="prerequisite">
+        Prerequisite
+        <a href="#prerequisite" class="anchor"></a>
+      </h4>
+
+      <div class="docblock">
+        <p>In order to implement RequestHandler, your type must inherit from
+        <a data-namespace="GObject" data-link="class.Object.html" href="javascript:void(0)" class="external"><code>GObject</code></a>.</p>
+      </div>
+    </div>
+
+    
+    <div class="implementations toggle-wrapper default-hide">
+      <h4 id="implementations">Implementations<a href="#implementations" class="anchor"></a></h4>
+      <div class="docblock">
+        <ul>
+          <li><a href="class.DirectoryFilesHandler.html">CogDirectoryFilesHandler</a></li>
+        
+          <li><a href="class.HostRoutesHandler.html">CogHostRoutesHandler</a></li>
+        
+          <li><a href="class.PrefixRoutesHandler.html">CogPrefixRoutesHandler</a></li>
+        </ul>
+      </div>
+    </div>
+    
+
+    
+
+    
+    <div class="methods toggle-wrapper">
+      <h4 id="methods">
+        Instance methods
+        <a href="#methods" class="anchor"></a>
+      </h4>
+
+      <div class="docblock">
+      
+      <div class="">
+        <h6><a href="method.RequestHandler.run.html">cog_request_handler_run</a></h6>
+
+        <div class="docblock">
+          <p>Handle a single custom <span class="caps">URI</span> scheme&nbsp;request.</p>
+        </div>
+
+        
+      </div>
+      
+      </div>
+
+    </div>
+    
+
+    
+
+    
+
+    
+    <div class="interface toggle-wrapper default-hide">
+      <h4 style="display:flex;" id="interface-struct">
+        Interface structure
+        <a href="#interface-struct" class="anchor"></a>
+        
+      </h4>
+
+      <div class="docblock">
+        <pre><code>struct CogRequestHandlerInterface {
+  GTypeInterface g_iface;
+  void (* run) (
+    CogRequestHandler* handler,
+    WebKitURISchemeRequest* request
+  );
+  
+}</code></pre>
+      </div>
+
+      
+      <div class="docblock">
+        <h6>Interface members</h6>
+
+        <table>
+        
+        <tr>
+          <td style="vertical-align:top"><code>g_iface</code></td>
+          <td style="vertical-align:top"><pre><code>GTypeInterface</code></pre></td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td><td style="vertical-align:top">No description available.</td>
+        </tr>
+        
+        <tr>
+          <td style="vertical-align:top"><code>run</code></td>
+          <td style="vertical-align:top"><pre><code>void (* run) (
+    CogRequestHandler* handler,
+    WebKitURISchemeRequest* request
+  )</code></pre></td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td><td style="vertical-align:top">No description available.</td>
+        </tr>
+        
+        </table>
+      </div>
+      
+    </div>
+    
+
+    
+
+    
+    <div class="toggle-wrapper methods">
+      <h4 id="virtual-methods">
+        Virtual methods
+        <a href="#virtual-methods" class="anchor"></a>
+      </h4>
+
+      <div class="docblock">
+      
+      <div class="">
+        <h6 id="vfunc-run"><a href="vfunc.RequestHandler.run.html">Cog.RequestHandler.run</a></h6>
+
+        <div class="docblock">
+          <p>Handle a single custom <span class="caps">URI</span> scheme&nbsp;request.</p>
+        </div>
+
+        
+      </div>
+      
+      </div>
+    </div>
+    
+
+  </section>
+</section>
+
+
+    
+<div id="toc" class="toc">
+  <nav aria-labelledby="toc-title">
+    <p id="toc-title">Content</p>
+    <ul class="toc-list">
+      <li class="toc-list-item"><a href="#description"><span class="link-text">Description</span></a></li>
+      
+      <ul class="toc-list">
+      
+      
+      
+      </ul>
+      
+      
+
+      
+<li class="toc-list-item"><a href="#methods"><span class="link-text">Methods</span></a></li>
+
+
+      
+
+      
+
+      
+
+      
+<li class="toc-list-item"><a href="#virtual-methods"><span class="link-text">Virtual methods</span></a></li>
+
+
+    </ul>
+  </nav>
+</div>
+
+
+    <section id="search" class="content hidden"></section>
+
+    <footer>
+    
+    </footer>
+  </div>
+</body>
+</html>

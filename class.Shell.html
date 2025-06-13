@@ -1,0 +1,575 @@
+<!--
+SPDX-FileCopyrightText: 2021 GNOME Foundation
+
+SPDX-License-Identifier: Apache-2.0 OR GPL-3.0-or-later
+-->
+
+<!--
+SPDX-FileCopyrightText: 2021 GNOME Foundation
+
+SPDX-License-Identifier: Apache-2.0 OR GPL-3.0-or-later
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Cog.Shell</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta charset="utf-8" />
+
+  
+  <meta property="og:type" content="website"/>
+
+  
+  <meta property="og:image:width" content="256"/>
+  <meta property="og:image:height" content="256"/>
+  <meta property="og:image:secure_url" content="cog.png"/>
+  <meta property="og:image:alt" content="Cog-0.0"/>
+  
+
+  
+  <meta property="og:title" content="Cog.Shell"/>
+  <meta property="og:description" content="Reference for Cog.Shell"/>
+  <meta name="twitter:title" content="Cog.Shell"/>
+  <meta name="twitter:description" content="Reference for Cog.Shell"/>
+
+
+  
+  <meta name="twitter:card" content="summary"/>
+
+  
+  
+  
+  
+
+  <link rel="stylesheet" href="style.css" type="text/css" />
+
+  
+
+  
+  
+  <script src="fzy.js"></script>
+  <script src="search.js"></script>
+  
+  <script src="main.js"></script>
+</head>
+
+<body>
+  <div id="body-wrapper" tabindex="-1">
+
+    <nav class="sidebar devhelp-hidden">
+      
+      <div class="section">
+        <img src="cog.png" class="logo"/>
+      </div>
+      
+      
+      <div class="search section">
+        <form id="search-form" autocomplete="off">
+          <input id="search-input" type="text" name="do-not-autocomplete" placeholder="Click, or press 's' to search" autocomplete="off"/>
+        </form>
+      </div>
+      
+      <div class="section namespace">
+        <h3><a href="index.html">Cog</a></h3>
+        <p>API Version: 0.0</p>
+        
+        <p>Library Version: 0.19.1</p>
+        
+      </div>
+      
+<div class="section">
+  <h5>Type</h5>
+  <div class="links">
+    <a class="current" href="class.Shell.html#description">Shell</a>
+  </div>
+</div>
+
+
+<div class="section">
+  <h5>Constructors</h5>
+  <div class="links">
+  
+    <a class="ctor" href="ctor.Shell.new.html">new</a>
+  
+  </div>
+</div>
+
+
+
+
+
+<div class="section">
+  <h5>Instance methods</h5>
+  <div class="links">
+  
+    <a class="method" href="method.Shell.get_config_file.html">get_config_file</a>
+  
+    <a class="method" href="method.Shell.get_device_scale_factor.html">get_device_scale_factor</a>
+  
+    <a class="method" href="method.Shell.get_name.html">get_name</a>
+  
+    <a class="method" href="method.Shell.get_web_context.html">get_web_context</a>
+  
+    <a class="method" href="method.Shell.get_web_settings.html">get_web_settings</a>
+  
+    <a class="method" href="method.Shell.is_automated.html">is_automated</a>
+  
+    <a class="method" href="method.Shell.set_request_handler.html">set_request_handler</a>
+  
+  </div>
+</div>
+
+
+
+<div class="section">
+  <h5>Properties</h5>
+  <div class="links">
+  
+    <a class="property" href="property.Shell.automated.html">automated</a>
+  
+    <a class="property" href="property.Shell.config-file.html">config-file</a>
+  
+    <a class="property" href="property.Shell.device-scale-factor.html">device-scale-factor</a>
+  
+    <a class="property" href="property.Shell.name.html">name</a>
+  
+    <a class="property" href="property.Shell.network-memory-settings.html">network-memory-settings</a>
+  
+    <a class="property" href="property.Shell.web-context.html">web-context</a>
+  
+    <a class="property" href="property.Shell.web-data-manager.html">web-data-manager</a>
+  
+    <a class="property" href="property.Shell.web-memory-settings.html">web-memory-settings</a>
+  
+    <a class="property" href="property.Shell.web-settings.html">web-settings</a>
+  
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+    </nav>
+    
+    <button id="btn-to-top" class="hidden"><span class="up-arrow"></span></button>
+
+    
+<section id="main" class="content">
+  <header>
+    <h3>Class</h3>
+    <h1 aria-label="Name"><a href="index.html">Cog</a><span class="sep" role="presentation"></span>Shell</h1>
+  </header>
+
+  <section>
+    <summary>
+      <div class="toggle-wrapper">
+        <h4 id="description" style="display:flex;">
+          Description
+          <a href="#description" class="anchor"></a>
+          
+          <a class="srclink" title="go to source location" href="https://github.com/Igalia/cog/blob/master/core/cog-shell.c#L14">[src]</a>
+          
+        </h4>
+
+        <pre><code>class Cog.Shell : GObject.Object {
+  parent_instance: GObject
+}</pre></code>
+
+        <div class="docblock">
+          <p>A shell managed a WebKit.WebView, the default <span class="caps">URI</span> that it will
+load, the view configuration, and keeps track of a number of registered
+<a href="iface.RequestHandler.html"><code>CogRequestHandler</code></a>&nbsp;instances.</p>
+        </div>
+
+        <div class="docblock">
+          <table class="attributes">
+            
+            
+            
+          </table>
+        </div>
+
+        
+      </div>
+    </summary>
+
+    
+
+    
+    <div class="toggle-wrapper ancestors">
+      <h4 id="ancestors">
+        Ancestors
+        <a href="#ancestors" class="anchor"></a>
+      </h4>
+
+      <div class="docblock">
+        <ul>
+        
+          
+          <li class="class"><a class="external" href="javascript:void(0)" data-link="class.Object.html" data-namespace="GObject">GObject</a></li>
+          
+        
+        </ul>
+      </div>
+    </div>
+    
+
+    
+
+    
+
+    
+    <div class="toggle-wrapper constructors">
+      <h4 id="constructors">
+        Constructors
+        <a href="#constructors" class="anchor"></a>
+      </h4>
+
+      <div class="docblock">
+      
+        <div class="">
+          <h6><a href="ctor.Shell.new.html">cog_shell_new</a></h6>
+
+          <div class="docblock">
+            <p>Creates a new&nbsp;shell.</p>
+          </div>
+
+          
+        </div>
+      
+      </div>
+    </div>
+    
+
+    
+
+    
+    <div class="toggle-wrapper methods">
+      <h4 id="methods">
+        Instance methods
+        <a href="#methods" class="anchor"></a>
+      </h4>
+
+      <div class="docblock">
+      
+        <div class="">
+          <h6><a href="method.Shell.get_config_file.html">cog_shell_get_config_file</a></h6>
+          <div class="docblock">
+            <p>Obtains the additional configuration for this&nbsp;shell.</p>
+          </div>
+          
+        </div>
+      
+        <div class="">
+          <h6><a href="method.Shell.get_device_scale_factor.html">cog_shell_get_device_scale_factor</a></h6>
+          <div class="docblock">
+            No description available.
+          </div>
+          
+        </div>
+      
+        <div class="">
+          <h6><a href="method.Shell.get_name.html">cog_shell_get_name</a></h6>
+          <div class="docblock">
+            <p>Obtains the name of this&nbsp;shell.</p>
+          </div>
+          
+        </div>
+      
+        <div class="">
+          <h6><a href="method.Shell.get_web_context.html">cog_shell_get_web_context</a></h6>
+          <div class="docblock">
+            <p>Obtains the WebKit.WebContext for this&nbsp;shell.</p>
+          </div>
+          
+        </div>
+      
+        <div class="">
+          <h6><a href="method.Shell.get_web_settings.html">cog_shell_get_web_settings</a></h6>
+          <div class="docblock">
+            <p>Obtains the WebKit.Settings for this&nbsp;shell.</p>
+          </div>
+          
+        </div>
+      
+        <div class="">
+          <h6><a href="method.Shell.is_automated.html">cog_shell_is_automated</a></h6>
+          <div class="docblock">
+            No description available.
+          </div>
+          
+        </div>
+      
+        <div class="">
+          <h6><a href="method.Shell.set_request_handler.html">cog_shell_set_request_handler</a></h6>
+          <div class="docblock">
+            <p>Installs a handler for a custom <span class="caps">URI</span>&nbsp;scheme.</p>
+          </div>
+          
+        </div>
+      
+      </div>
+
+      
+        
+        <div class="toggle-wrapper default-hide ancestor-methods"><h5 style="display:block;">Methods inherited from <a class="external" href="javascript:void(0)" data-link="class.Object.html" data-namespace="GObject">GObject</a> (43)</h5>
+          <div class="docblock">
+          
+            <div class="docblock">
+              <p>Please see&nbsp;<a class="external" href="javascript:void(0)" data-link="class.Object.html#methods" data-namespace="GObject">GObject</a>&nbsp;for a full list of methods.</em></p>
+            </div>
+          
+          </div>
+        </div>
+        
+      
+
+      
+    </div>
+    
+
+    
+    <div class="toggle-wrapper properties">
+      <h4 id="properties">
+        Properties
+        <a href="#properties" class="anchor"></a>
+      </h4>
+
+      
+      <div class="docblock">
+      
+        <div class="">
+          <h6><a href="property.Shell.automated.html">Cog.Shell:automated</a></h6>
+
+          <div class="docblock">
+            No description available.
+          </div>
+
+          
+        </div>
+      
+        <div class="">
+          <h6><a href="property.Shell.config-file.html">Cog.Shell:config-file</a></h6>
+
+          <div class="docblock">
+            <p>Optional configuration as a <code>GKeyFile</code>. This allows setting options
+which can be read elsewhere. This is typically used to provide
+additional options to <a href="overview.html">platform modules</a>.</p>
+          </div>
+
+          
+        </div>
+      
+        <div class="">
+          <h6><a href="property.Shell.device-scale-factor.html">Cog.Shell:device-scale-factor</a></h6>
+
+          <div class="docblock">
+            No description available.
+          </div>
+
+          
+        </div>
+      
+        <div class="">
+          <h6><a href="property.Shell.name.html">Cog.Shell:name</a></h6>
+
+          <div class="docblock">
+            <p>Name of the&nbsp;shell.</p>
+          </div>
+
+          
+        </div>
+      
+        <div class="">
+          <h6><a href="property.Shell.network-memory-settings.html">Cog.Shell:network-memory-settings</a></h6>
+
+          <div class="docblock">
+            <p>Optional memory settings to be applied to network processes, as a
+<code>WebKitMemoryPressureSettings</code> instance.</p>
+          </div>
+
+          
+        </div>
+      
+        <div class="">
+          <h6><a href="property.Shell.web-context.html">Cog.Shell:web-context</a></h6>
+
+          <div class="docblock">
+            <p>The WebKit.WebContext for this shell&#8217;s&nbsp;view.</p>
+          </div>
+
+          
+        </div>
+      
+        <div class="">
+          <h6><a href="property.Shell.web-data-manager.html">Cog.Shell:web-data-manager</a></h6>
+
+          <div class="docblock">
+            <p>Optional <code>WebKitWebsiteDataManager</code> to be used by the shell. If
+specified at construction, then the <code>CogShell:automated</code>
+property will be ignored and the provided object should have
+WebKit.WebsiteDataManager:is-ephemeral enabled for running
+in automation&nbsp;mode.</p>
+          </div>
+
+          
+        </div>
+      
+        <div class="">
+          <h6><a href="property.Shell.web-memory-settings.html">Cog.Shell:web-memory-settings</a></h6>
+
+          <div class="docblock">
+            <p>Optional memory settings to be applied to web processes, as a
+<code>WebKitMemoryPressureSettings</code> instance.</p>
+          </div>
+
+          
+        </div>
+      
+        <div class="">
+          <h6><a href="property.Shell.web-settings.html">Cog.Shell:web-settings</a></h6>
+
+          <div class="docblock">
+            <p>WebKit settings for this&nbsp;shell.</p>
+          </div>
+
+          
+        </div>
+      
+      </div>
+      
+
+      
+        
+      
+
+      
+
+    </div>
+    
+
+    
+    <div class="signals toggle-wrapper">
+      <h4 id="signals">
+        Signals
+        <a href="#signals" class="anchor"></a>
+      </h4>
+
+      
+
+      
+        
+        <div class="toggle-wrapper default-hide ancestor-signals"><h5 style="display:block;">Signals inherited from <a class="external" href="javascript:void(0)" data-link="class.Object.html" data-namespace="GObject">GObject</a> (1)</h5>
+          <div class="docblock">
+          <h6><a class="external" href="javascript:void(0)" data-namespace="GObject" data-link="signal.Object.notify.html">GObject.Object::notify</a></h6>
+            <div class="docblock">
+              <p>The notify signal is emitted on an object when one of its properties has
+its value set through g_object_set_property(), g_object_set(), et&nbsp;al.</p>
+            </div>
+            
+          
+          </div>
+        </div>
+        
+      
+
+      
+
+    </div>
+    
+
+    
+    <div class="class toggle-wrapper default-hide">
+      <h4 id="class-struct">
+        Class structure
+        <a href="#class-struct" class="anchor"></a>
+      </h4>
+
+      <div class="docblock">
+        <pre><code>struct CogShellClass {
+  GObjectClass parent_class;
+  
+}</code></pre>
+      </div>
+
+      
+      <div class="docblock">
+        <h6>Class members</h6>
+
+        <table class="members">
+        
+        <tr>
+          <td style="vertical-align:top"><code>parent_class</code></td>
+          <td style="vertical-align:top"><pre><code>GObjectClass</code></pre></td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+          <td style="vertical-align:top">No description available.</td>
+        </td>
+        
+        </table>
+      </div>
+      
+    </div>
+    
+
+    
+
+    
+
+  </section>
+</section>
+
+
+    
+<div id="toc" class="toc">
+  <nav aria-labelledby="toc-title">
+    <p id="toc-title">Content</p>
+    <ul class="toc-list">
+      <li class="toc-list-item"><a href="#description"><span class="link-text">Description</span></a></li>
+      
+      
+      
+      <li class="toc-list-item"><a href="#ancestors"><span class="link-text">Ancestors</span></a></li>
+      
+      
+      
+<li class="toc-list-item"><a href="#constructors"><span class="link-text">Constructors</span></a></li>
+
+
+      
+
+      
+<li class="toc-list-item"><a href="#methods"><span class="link-text">Methods</span></a></li>
+
+
+      
+<li class="toc-list-item"><a href="#properties"><span class="link-text">Properties</span></a></li>
+
+
+      
+
+      
+
+      
+
+    </ul>
+  </nav>
+</div>
+
+
+    <section id="search" class="content hidden"></section>
+
+    <footer>
+    
+    </footer>
+  </div>
+</body>
+</html>
